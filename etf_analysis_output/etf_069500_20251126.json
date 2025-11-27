@@ -1,0 +1,1066 @@
+{
+  "basic_info": {
+    "code": "069500",
+    "name": "삼성자산운용(ETF)",
+    "listing_date": "2002-10-14T00:00:00",
+    "days_since_listing": 8444,
+    "years_since_listing": 23.12,
+    "category": "수익증권형",
+    "representative_sector": "KOSPI200"
+  },
+  "price": {
+    "current_price": 56080.0,
+    "prev_close": 54605.0,
+    "open_price": 55080.0,
+    "high_price": 56080.0,
+    "low_price": 54720.0,
+    "change": 1475.0,
+    "change_pct": 2.7
+  },
+  "nav": {
+    "nav": 56133.76,
+    "nav_change": 1479.48,
+    "nav_change_pct": 2.71,
+    "premium": -0.09577124354399569,
+    "tracking_error": 0.7
+  },
+  "liquidity": {
+    "volume": 9631980,
+    "prev_volume": 13967143,
+    "turnover": 540161438400.0,
+    "turnover_billion": 5401.614384,
+    "avg_20d_volume": 17766595.3,
+    "avg_20d_turnover_billion": 10110.918598015,
+    "spread_abs": 5.0,
+    "spread_pct": 0.008915437079302813
+  },
+  "aum": {
+    "aum_total": 10836622368000.0,
+    "aum_billion": 108366.22368,
+    "aum_trillion": 10.836622368,
+    "circulating_shares": 193050000
+  },
+  "risk": {
+    "volatility_daily": 1.24,
+    "volatility_annual": 19.75,
+    "mdd": -21.61,
+    "sharpe_ratio": 1.058,
+    "sortino_ratio": 1.403,
+    "beta": null,
+    "alpha": null
+  },
+  "returns": {
+    "return_1m": -2.03,
+    "return_3m": 29.28,
+    "return_6m": 62.94,
+    "return_1y": 79.24,
+    "return_3y": null,
+    "return_5y": null,
+    "return_ytd": 79.24,
+    "cagr": 25.11
+  },
+  "components": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "weight_pct": 26.0,
+      "price": 102800.0,
+      "valuation": 704831400.0,
+      "market_cap": 6085388.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "weight_pct": 15.89,
+      "price": 524000.0,
+      "valuation": 441669000.0,
+      "market_cap": 3814732.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "weight_pct": 2.18,
+      "price": 124700.0,
+      "valuation": 59754700.0,
+      "market_cap": 475683.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "weight_pct": 1.91,
+      "price": 261500.0,
+      "valuation": 52787500.0,
+      "market_cap": 535442.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "035420",
+      "name": "NAVER",
+      "weight_pct": 1.85,
+      "price": 263500.0,
+      "valuation": 49841000.0,
+      "market_cap": 413307.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "034020",
+      "name": "두산에너빌리티",
+      "weight_pct": 1.8,
+      "price": 77700.0,
+      "valuation": 47775000.0,
+      "market_cap": 497716.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "weight_pct": 1.78,
+      "price": 79000.0,
+      "valuation": 49057500.0,
+      "market_cap": 383541.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "012450",
+      "name": "한화에어로스페이스",
+      "weight_pct": 1.64,
+      "price": 871000.0,
+      "valuation": 45527000.0,
+      "market_cap": 449117.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "068270",
+      "name": "셀트리온",
+      "weight_pct": 1.56,
+      "price": 187400.0,
+      "valuation": 42705000.0,
+      "market_cap": 432821.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000270",
+      "name": "기아",
+      "weight_pct": 1.5,
+      "price": 113200.0,
+      "valuation": 41255200.0,
+      "market_cap": 445769.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "weight_pct": 1.44,
+      "price": 291000.0,
+      "valuation": 40379500.0,
+      "market_cap": 385694.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "028260",
+      "name": "삼성물산",
+      "weight_pct": 1.28,
+      "price": 236000.0,
+      "valuation": 34732000.0,
+      "market_cap": 401145.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "weight_pct": 1.26,
+      "price": 92900.0,
+      "valuation": 34594800.0,
+      "market_cap": 258565.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "weight_pct": 1.18,
+      "price": 317500.0,
+      "valuation": 31304000.0,
+      "market_cap": 256962.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "035720",
+      "name": "카카오",
+      "weight_pct": 1.11,
+      "price": 61000.0,
+      "valuation": 29522000.0,
+      "market_cap": 269854.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "009540",
+      "name": "HD한국조선해양",
+      "weight_pct": 1.08,
+      "price": 428000.0,
+      "valuation": 29820000.0,
+      "market_cap": 302909.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "012330",
+      "name": "현대모비스",
+      "weight_pct": 1.01,
+      "price": 298000.0,
+      "valuation": 27882500.0,
+      "market_cap": 270383.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "006400",
+      "name": "삼성SDI",
+      "weight_pct": 1.0,
+      "price": 304500.0,
+      "valuation": 26174000.0,
+      "market_cap": 245383.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "051910",
+      "name": "LG화학",
+      "weight_pct": 0.99,
+      "price": 397000.0,
+      "valuation": 25410000.0,
+      "market_cap": 280252.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "267260",
+      "name": "HD현대일렉트릭",
+      "weight_pct": 0.97,
+      "price": 797000.0,
+      "valuation": 26520000.0,
+      "market_cap": 287296.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "316140",
+      "name": "우리금융지주",
+      "weight_pct": 0.95,
+      "price": 26150.0,
+      "valuation": 26368000.0,
+      "market_cap": 191961.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "weight_pct": 0.94,
+      "price": 1651000.0,
+      "valuation": 26032000.0,
+      "market_cap": 764264.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "010140",
+      "name": "삼성중공업",
+      "weight_pct": 0.9,
+      "price": 25350.0,
+      "valuation": 24800000.0,
+      "market_cap": 223080.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "weight_pct": 0.9,
+      "price": 52800.0,
+      "valuation": 24565500.0,
+      "market_cap": 338957.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "weight_pct": 0.82,
+      "price": 435500.0,
+      "valuation": 21915500.0,
+      "market_cap": 1019070.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000810",
+      "name": "삼성화재",
+      "weight_pct": 0.8,
+      "price": 486000.0,
+      "valuation": 21758000.0,
+      "market_cap": 223614.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "weight_pct": 0.77,
+      "price": 257000.0,
+      "valuation": 20286000.0,
+      "market_cap": 191963.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "033780",
+      "name": "KT&G",
+      "weight_pct": 0.72,
+      "price": 142600.0,
+      "valuation": 19768200.0,
+      "market_cap": 168235.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "064350",
+      "name": "현대로템",
+      "weight_pct": 0.71,
+      "price": 179400.0,
+      "valuation": 19669200.0,
+      "market_cap": 195801.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "042660",
+      "name": "한화오션",
+      "weight_pct": 0.7,
+      "price": 113900.0,
+      "valuation": 19436000.0,
+      "market_cap": 349005.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "032830",
+      "name": "삼성생명",
+      "weight_pct": 0.69,
+      "price": 151600.0,
+      "valuation": 18630900.0,
+      "market_cap": 303200.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "329180",
+      "name": "HD현대중공업",
+      "weight_pct": 0.67,
+      "price": 554000.0,
+      "valuation": 18632000.0,
+      "market_cap": 491803.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "030200",
+      "name": "KT",
+      "weight_pct": 0.59,
+      "price": 50200.0,
+      "valuation": 16550200.0,
+      "market_cap": 126515.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "066570",
+      "name": "LG전자",
+      "weight_pct": 0.51,
+      "price": 86500.0,
+      "valuation": 13972800.0,
+      "market_cap": 140897.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "267250",
+      "name": "HD현대",
+      "weight_pct": 0.49,
+      "price": 204000.0,
+      "valuation": 13770000.0,
+      "market_cap": 161146.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "298040",
+      "name": "효성중공업",
+      "weight_pct": 0.49,
+      "price": 1960000.0,
+      "valuation": 13580000.0,
+      "market_cap": 182761.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "034730",
+      "name": "SK",
+      "weight_pct": 0.48,
+      "price": 251000.0,
+      "valuation": 13446000.0,
+      "market_cap": 181982.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "096770",
+      "name": "SK이노베이션",
+      "weight_pct": 0.47,
+      "price": 117200.0,
+      "valuation": 12543000.0,
+      "market_cap": 198130.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "138040",
+      "name": "메리츠금융지주",
+      "weight_pct": 0.46,
+      "price": 110600.0,
+      "valuation": 12577500.0,
+      "market_cap": 193795.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "017670",
+      "name": "SK텔레콤",
+      "weight_pct": 0.43,
+      "price": 54100.0,
+      "valuation": 12037500.0,
+      "market_cap": 116201.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "047810",
+      "name": "한국항공우주",
+      "weight_pct": 0.42,
+      "price": 110300.0,
+      "valuation": 11511600.0,
+      "market_cap": 107515.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "259960",
+      "name": "크래프톤",
+      "weight_pct": 0.41,
+      "price": 260000.0,
+      "valuation": 11220000.0,
+      "market_cap": 123224.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "323410",
+      "name": "카카오뱅크",
+      "weight_pct": 0.4,
+      "price": 22000.0,
+      "valuation": 10849950.0,
+      "market_cap": 104938.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "003550",
+      "name": "LG",
+      "weight_pct": 0.4,
+      "price": 79900.0,
+      "valuation": 11054400.0,
+      "market_cap": 123223.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000100",
+      "name": "유한양행",
+      "weight_pct": 0.39,
+      "price": 119400.0,
+      "valuation": 10419500.0,
+      "market_cap": 95482.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "010120",
+      "name": "LS ELECTRIC",
+      "weight_pct": 0.38,
+      "price": 448500.0,
+      "valuation": 10560000.0,
+      "market_cap": 134550.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "010130",
+      "name": "고려아연",
+      "weight_pct": 0.37,
+      "price": 1160000.0,
+      "valuation": 10242000.0,
+      "market_cap": 224382.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "071050",
+      "name": "한국금융지주",
+      "weight_pct": 0.36,
+      "price": 162700.0,
+      "valuation": 9585200.0,
+      "market_cap": 90666.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "018260",
+      "name": "삼성에스디에스",
+      "weight_pct": 0.34,
+      "price": 169300.0,
+      "valuation": 9564600.0,
+      "market_cap": 131001.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "003670",
+      "name": "포스코퓨처엠",
+      "weight_pct": 0.34,
+      "price": 205000.0,
+      "valuation": 8793700.0,
+      "market_cap": 182340.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000150",
+      "name": "두산",
+      "weight_pct": 0.33,
+      "price": 854000.0,
+      "valuation": 9130000.0,
+      "market_cap": 141114.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "006800",
+      "name": "미래에셋증권",
+      "weight_pct": 0.33,
+      "price": 22500.0,
+      "valuation": 8715000.0,
+      "market_cap": 128321.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "278470",
+      "name": "에이피알",
+      "weight_pct": 0.33,
+      "price": 250000.0,
+      "valuation": 9268500.0,
+      "market_cap": 93577.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "352820",
+      "name": "하이브",
+      "weight_pct": 0.32,
+      "price": 285000.0,
+      "valuation": 8976000.0,
+      "market_cap": 121296.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "086280",
+      "name": "현대글로비스",
+      "weight_pct": 0.32,
+      "price": 161400.0,
+      "valuation": 8960000.0,
+      "market_cap": 121050.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "011200",
+      "name": "HMM",
+      "weight_pct": 0.32,
+      "price": 19010.0,
+      "valuation": 8868540.0,
+      "market_cap": 179310.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "024110",
+      "name": "기업은행",
+      "weight_pct": 0.3,
+      "price": 20450.0,
+      "valuation": 8281650.0,
+      "market_cap": 163074.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "003230",
+      "name": "삼양식품",
+      "weight_pct": 0.3,
+      "price": 1396000.0,
+      "valuation": 7866000.0,
+      "market_cap": 105161.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "005830",
+      "name": "DB손해보험",
+      "weight_pct": 0.3,
+      "price": 125000.0,
+      "valuation": 8033300.0,
+      "market_cap": 88500.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "003490",
+      "name": "대한항공",
+      "weight_pct": 0.3,
+      "price": 21700.0,
+      "valuation": 8123500.0,
+      "market_cap": 79904.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "042700",
+      "name": "한미반도체",
+      "weight_pct": 0.29,
+      "price": 128500.0,
+      "valuation": 7686400.0,
+      "market_cap": 122476.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "079550",
+      "name": "LIG넥스원",
+      "weight_pct": 0.28,
+      "price": 392000.0,
+      "valuation": 7690000.0,
+      "market_cap": 86240.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "010620",
+      "name": "HD현대미포",
+      "weight_pct": 0.27,
+      "price": 223000.0,
+      "valuation": 7463000.0,
+      "market_cap": 89071.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "021240",
+      "name": "코웨이",
+      "weight_pct": 0.27,
+      "price": 89700.0,
+      "valuation": 7387000.0,
+      "market_cap": 64502.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "016360",
+      "name": "삼성증권",
+      "weight_pct": 0.26,
+      "price": 80400.0,
+      "valuation": 7139200.0,
+      "market_cap": 71797.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000720",
+      "name": "현대건설",
+      "weight_pct": 0.26,
+      "price": 65500.0,
+      "valuation": 6748800.0,
+      "market_cap": 72938.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "180640",
+      "name": "한진칼",
+      "weight_pct": 0.25,
+      "price": 100300.0,
+      "valuation": 7107100.0,
+      "market_cap": 66963.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "weight_pct": 0.23,
+      "price": 59300.0,
+      "valuation": 6365600.0,
+      "market_cap": 73458.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "032640",
+      "name": "LG유플러스",
+      "weight_pct": 0.23,
+      "price": 15290.0,
+      "valuation": 6338400.0,
+      "market_cap": 65721.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "028050",
+      "name": "삼성E&A",
+      "weight_pct": 0.22,
+      "price": 25600.0,
+      "valuation": 5973800.0,
+      "market_cap": 50176.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "090430",
+      "name": "아모레퍼시픽",
+      "weight_pct": 0.21,
+      "price": 127500.0,
+      "valuation": 5940800.0,
+      "market_cap": 74578.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "138930",
+      "name": "BNK금융지주",
+      "weight_pct": 0.21,
+      "price": 15200.0,
+      "valuation": 5798530.0,
+      "market_cap": 47793.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "326030",
+      "name": "SK바이오팜",
+      "weight_pct": 0.21,
+      "price": 140700.0,
+      "valuation": 5418000.0,
+      "market_cap": 110187.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "175330",
+      "name": "JB금융지주",
+      "weight_pct": 0.21,
+      "price": 23800.0,
+      "valuation": 5795000.0,
+      "market_cap": 45193.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "039490",
+      "name": "키움증권",
+      "weight_pct": 0.2,
+      "price": 273000.0,
+      "valuation": 5649000.0,
+      "market_cap": 72564.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "036570",
+      "name": "엔씨소프트",
+      "weight_pct": 0.2,
+      "price": 213500.0,
+      "valuation": 5408000.0,
+      "market_cap": 45996.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "034220",
+      "name": "LG디스플레이",
+      "weight_pct": 0.2,
+      "price": 12620.0,
+      "valuation": 5368970.0,
+      "market_cap": 63100.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "011070",
+      "name": "LG이노텍",
+      "weight_pct": 0.19,
+      "price": 242500.0,
+      "valuation": 5192000.0,
+      "market_cap": 57393.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "010950",
+      "name": "S-Oil",
+      "weight_pct": 0.18,
+      "price": 80900.0,
+      "valuation": 5065200.0,
+      "market_cap": 91079.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "272210",
+      "name": "한화시스템",
+      "weight_pct": 0.18,
+      "price": 46650.0,
+      "valuation": 4897200.0,
+      "market_cap": 88131.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "066970",
+      "name": "엘앤에프",
+      "weight_pct": 0.17,
+      "price": 124100.0,
+      "valuation": 4316800.0,
+      "market_cap": 49021.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "005940",
+      "name": "NH투자증권",
+      "weight_pct": 0.17,
+      "price": 21000.0,
+      "valuation": 4541550.0,
+      "market_cap": 74832.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "006260",
+      "name": "LS",
+      "weight_pct": 0.17,
+      "price": 178500.0,
+      "valuation": 4612400.0,
+      "market_cap": 56585.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "009830",
+      "name": "한화솔루션",
+      "weight_pct": 0.17,
+      "price": 28250.0,
+      "valuation": 4501800.0,
+      "market_cap": 48560.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "128940",
+      "name": "한미약품",
+      "weight_pct": 0.16,
+      "price": 455500.0,
+      "valuation": 4445000.0,
+      "market_cap": 58354.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "241560",
+      "name": "두산밥캣",
+      "weight_pct": 0.16,
+      "price": 57400.0,
+      "valuation": 4290000.0,
+      "market_cap": 55021.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "051900",
+      "name": "LG생활건강",
+      "weight_pct": 0.14,
+      "price": 285500.0,
+      "valuation": 3955000.0,
+      "market_cap": 43689.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "078930",
+      "name": "GS",
+      "weight_pct": 0.14,
+      "price": 58000.0,
+      "valuation": 3910000.0,
+      "market_cap": 53891.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "004020",
+      "name": "현대제철",
+      "weight_pct": 0.14,
+      "price": 30250.0,
+      "valuation": 3721100.0,
+      "market_cap": 40367.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "001440",
+      "name": "대한전선",
+      "weight_pct": 0.13,
+      "price": 22200.0,
+      "valuation": 3714500.0,
+      "market_cap": 41391.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "001040",
+      "name": "CJ",
+      "weight_pct": 0.13,
+      "price": 179500.0,
+      "valuation": 3664500.0,
+      "market_cap": 52373.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "047050",
+      "name": "포스코인터내셔널",
+      "weight_pct": 0.13,
+      "price": 53800.0,
+      "valuation": 3594900.0,
+      "market_cap": 94646.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "271560",
+      "name": "오리온",
+      "weight_pct": 0.13,
+      "price": 106700.0,
+      "valuation": 3389100.0,
+      "market_cap": 42185.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "000880",
+      "name": "한화",
+      "weight_pct": 0.12,
+      "price": 79500.0,
+      "valuation": 3263400.0,
+      "market_cap": 59592.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "011790",
+      "name": "SKC",
+      "weight_pct": 0.12,
+      "price": 110800.0,
+      "valuation": 3207000.0,
+      "market_cap": 41958.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "017800",
+      "name": "현대엘리베이터",
+      "weight_pct": 0.11,
+      "price": 82000.0,
+      "valuation": 3178500.0,
+      "market_cap": 32056.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "111770",
+      "name": "영원무역",
+      "weight_pct": 0.11,
+      "price": 93800.0,
+      "valuation": 2937000.0,
+      "market_cap": 41564.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "035250",
+      "name": "강원랜드",
+      "weight_pct": 0.11,
+      "price": 17870.0,
+      "valuation": 3015160.0,
+      "market_cap": 38231.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "139130",
+      "name": "iM금융지주",
+      "weight_pct": 0.11,
+      "price": 14450.0,
+      "valuation": 3000420.0,
+      "market_cap": 23417.0,
+      "sector": "",
+      "is_domestic": true
+    },
+    {
+      "code": "014680",
+      "name": "한솔케미칼",
+      "weight_pct": 0.11,
+      "price": 232000.0,
+      "valuation": 3003000.0,
+      "market_cap": 26298.0,
+      "sector": "",
+      "is_domestic": true
+    }
+  ],
+  "quality_score": 95.0,
+  "analysis_time": "2025-11-26T15:59:19.830731"
+}

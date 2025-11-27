@@ -1,0 +1,44 @@
+{
+  "today": "2025-11-26",
+  "ticker": "069500",
+  "name": "KODEX 200",
+  "etf_info": {
+    "metadata": {
+      "as_of": "2025-11-26T18:04:23.046578",
+      "etf_code": "069500",
+      "etf_name": "KODEX 200",
+      "data_source": "KIS API + Calculations"
+    },
+    "basic_info": {
+      "listing_date": "2002-10-14",
+      "days_since_listing": 8444,
+      "years_since_listing": 23.12
+    },
+    "price": {
+      "current_price": 56080.0,
+      "nav": 56133.76,
+      "nav_change": 1479.48,
+      "nav_change_pct": 2.71
+    },
+    "premium_discount": {
+      "premium_pct": -0.09577124354399569
+    },
+    "liquidity": {
+      "today_volume": 9655050.0,
+      "today_turnover_billion": 5414.55204
+    },
+    "aum": {
+      "aum_total": 10836622368000.0,
+      "aum_billion": 108366.22368,
+      "aum_trillion": 10.836622367999999
+    },
+    "risk": {
+      "tracking_error_api": 0.7,
+      "daily_vol_annual_pct": 29.134236866608905,
+      "max_drawdown_pct": -34.3216330594972,
+      "sharpe_ratio": 0.684800271933731,
+      "sortino_ratio": 1.2573092795096263
+    }
+  },
+  "backtest_result": "```markdown\nStat                 069500      153130      329750\n-------------------  ----------  ----------  ----------\nStart                2019-07-23  2019-07-23  2019-07-23\nEnd                  2025-11-26  2025-11-26  2025-11-26\nRisk-free rate       2.50%       2.50%       2.50%\n\nTotal Return         131.45%     11.91%      43.18%\nDaily Sharpe         0.98        0.86        1.01\nDaily Sortino        1.95        13.53       2.16\nCAGR                 14.14%      1.79%       5.82%\nMax Drawdown         -33.97%     -0.13%      -10.05%\nCalmar Ratio         0.42        14.23       0.58\n\nMTD                  -3.61%      0.10%       3.10%\n3m                   30.10%      0.40%       5.94%\n6m                   68.94%      2.31%       8.90%\nYTD                  68.94%      2.31%       8.90%\n1Y                   68.94%      2.31%       8.90%\n3Y (ann.)            25.39%      2.83%       9.15%\n5Y (ann.)            7.90%       2.24%       9.20%\n10Y (ann.)           -           -           -\nSince Incep. (ann.)  14.14%      1.79%       5.82%\n\nDaily Sharpe         0.98        0.86        1.01\nDaily Sortino        1.95        13.53       2.16\nDaily Mean (ann.)    36.76%      4.17%       13.87%\nDaily Vol (ann.)     35.01%      1.98%       11.30%\nDaily Skew           5.05        13.81       4.93\nDaily Kurt           91.85       198.35      63.87\nBest Day             30.28%      1.93%       8.88%\nWorst Day            -21.34%     -0.08%      -4.10%\n\nMonthly Sharpe       0.40        -2.62       0.22\nMonthly Sortino      0.96        -3.40       0.39\nMonthly Mean (ann.)  11.35%      1.60%       4.63%\nMonthly Vol (ann.)   22.44%      0.33%       9.88%\nMonthly Skew         1.21        0.38        0.04\nMonthly Kurt         2.76        -1.11       0.41\nBest Month           22.17%      0.32%       7.02%\nWorst Month          -12.10%     -0.01%      -6.62%\n\nYearly Sharpe        0.51        -0.53       0.57\nYearly Sortino       1.79        -0.70       1.26\nYearly Mean          17.35%      1.84%       6.27%\nYearly Vol           29.15%      1.24%       6.62%\nYearly Skew          1.09        0.12        -1.02\nYearly Kurt          2.16        -2.39       0.45\nBest Year            68.94%      3.24%       12.52%\nWorst Year           -17.84%     0.37%       -4.87%\n\nAvg. Drawdown        -3.55%      -0.01%      -1.36%\nAvg. Drawdown Days   73.96       6.43        67.18\nAvg. Up Month        6.36%       0.14%       2.37%\nAvg. Down Month      -3.27%      -0.01%      -2.17%\nWin Year %           83.33%      100.00%     83.33%\nWin 12m %            34.85%      42.42%      30.30%\n```"
+}

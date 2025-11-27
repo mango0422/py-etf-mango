@@ -1,0 +1,76 @@
+{
+  "basic_info": {
+    "code": "252670",
+    "name": "삼성자산운용(ETF)",
+    "listing_date": "2016-09-22T00:00:00",
+    "days_since_listing": 3352,
+    "years_since_listing": 9.18,
+    "category": "수익증권형",
+    "representative_sector": "K200선물"
+  },
+  "price": {
+    "current_price": 734.0,
+    "prev_close": 776.0,
+    "open_price": 761.0,
+    "high_price": 774.0,
+    "low_price": 734.0,
+    "change": -42.0,
+    "change_pct": -5.41
+  },
+  "nav": {
+    "nav": 734.18,
+    "nav_change": -39.78,
+    "nav_change_pct": -5.14,
+    "premium": -0.024517148383223462,
+    "tracking_error": 0.53
+  },
+  "liquidity": {
+    "volume": 860734961,
+    "prev_volume": 1012704896,
+    "turnover": 631779461374.0,
+    "turnover_billion": 6317.79461374,
+    "avg_20d_volume": 1222604795.4,
+    "avg_20d_turnover_billion": 8876.2779995615,
+    "spread_abs": 1.0,
+    "spread_pct": 0.13614703880190604
+  },
+  "aum": {
+    "aum_total": 1565051506000.0,
+    "aum_billion": 15650.51506,
+    "aum_trillion": 1.565051506,
+    "circulating_shares": 2131700000
+  },
+  "risk": {
+    "volatility_daily": 2.52,
+    "volatility_annual": 40.03,
+    "mdd": -81.2,
+    "sharpe_ratio": -1.129,
+    "sortino_ratio": -1.834,
+    "beta": -2.022,
+    "alpha": -2.92
+  },
+  "returns": {
+    "return_1m": 1.52,
+    "return_3m": -43.1,
+    "return_6m": -64.71,
+    "return_1y": -71.82,
+    "return_3y": null,
+    "return_5y": null,
+    "return_ytd": -71.71,
+    "cagr": -39.1
+  },
+  "components": [
+    {
+      "code": "114800",
+      "name": "KODEX 인버스",
+      "weight_pct": 100.0,
+      "price": 2650.0,
+      "valuation": 14014675.0,
+      "market_cap": 8544.0,
+      "sector": "",
+      "is_domestic": true
+    }
+  ],
+  "quality_score": 72.5,
+  "analysis_time": "2025-11-26T15:59:21.541074"
+}

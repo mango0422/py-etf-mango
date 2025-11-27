@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "as_of": "2025-11-26T18:04:23.207668",
+    "etf_code": "153130",
+    "etf_name": "KODEX 단기채권",
+    "data_source": "KIS API + Calculations"
+  },
+  "basic_info": {
+    "listing_date": "2012-02-22",
+    "days_since_listing": 5026,
+    "years_since_listing": 13.76
+  },
+  "price": {
+    "current_price": 113450.0,
+    "nav": 113453.92,
+    "nav_change": 7.05,
+    "nav_change_pct": 0.01
+  },
+  "premium_discount": {
+    "premium_pct": -0.0034551472527333156
+  },
+  "liquidity": {
+    "today_volume": 22192.0,
+    "today_turnover_billion": 25.176824
+  },
+  "aum": {
+    "aum_total": 716461504800.0,
+    "aum_billion": 7164.615048,
+    "aum_trillion": 0.7164615047999999
+  },
+  "risk": {
+    "tracking_error_api": 0.04,
+    "daily_vol_annual_pct": 2.0229983055531626,
+    "max_drawdown_pct": -0.13904284075219042,
+    "sharpe_ratio": 1.1022350072996643,
+    "sortino_ratio": 15.125187514922501
+  }
+}

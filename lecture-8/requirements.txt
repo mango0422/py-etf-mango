@@ -1,8 +1,0 @@
-openai>=1.51.0
-
-bt==1.1.2
-pandas>=2.2.0
-numpy>=2.0.0
-
-python-dateutil>=2.9.0
-tqdm>=4.67.0
