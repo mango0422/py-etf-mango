@@ -1,14 +1,132 @@
-// kis/env.py
-from __future__ import annotations
+// kis/auth.py
+
+from typing import Optional
+import requests
+from .config import PROJECT_ROOT, KIS_URL_BASE, KIS_APP_KEY, KIS_APP_SECRET, KIS_ACCESS_TOKEN_INIT
+
+_KIS_ACCESS_TOKEN: Optional[str] = KIS_ACCESS_TOKEN_INIT
+
+
+def get_api_headers(tr_id: str) -> dict[str, str]:
+    auth = f"Bearer {_KIS_ACCESS_TOKEN}" if _KIS_ACCESS_TOKEN else ""
+    return {
+        "content-type": "application/json; charset=utf-8",
+        "authorization": auth,
+        "appkey": KIS_APP_KEY or "",
+        "appsecret": KIS_APP_SECRET or "",
+        "tr_id": tr_id,
+        "custtype": "P",
+    }
+
+
+def refresh_access_token() -> Optional[str]:
+    global _KIS_ACCESS_TOKEN
+
+    if not KIS_URL_BASE or not KIS_APP_KEY or not KIS_APP_SECRET:
+        print("❌ KIS 환경변수(KIS_URL_BASE / KIS_APP_KEY / KIS_APP_SECRET)를 확인하세요.")
+        return None
+
+    token_url = f"{KIS_URL_BASE}/oauth2/tokenP"
+    headers = {"content-type": "application/json"}
+    body = {
+        "grant_type": "client_credentials",
+        "appkey": KIS_APP_KEY,
+        "appsecret": KIS_APP_SECRET,
+    }
+
+    try:
+        res = requests.post(token_url, headers=headers, json=body, timeout=5)
+        data = res.json()
+    except Exception as e:
+        print(f"❌ 토큰 발급 요청 실패: {e}")
+        return None
+
+    access_token = data.get("access_token")
+    if not access_token:
+        print(f"❌ 토큰 발급 실패: {data}")
+        return None
+
+    _KIS_ACCESS_TOKEN = access_token
+    print("✅ 토큰 발급 성공")
+
+    # .env 동기화 (선택 기능)
+    try:
+        env_path = PROJECT_ROOT / ".env"
+        lines: list[str] = []
+        if env_path.exists():
+            lines = env_path.read_text(encoding="utf-8").splitlines()
+
+        new_lines = []
+        token_updated = False
+        for line in lines:
+            if line.startswith("KIS_ACCESS_TOKEN="):
+                new_lines.append(f"KIS_ACCESS_TOKEN={access_token}")
+                token_updated = True
+            else:
+                new_lines.append(line)
+
+        if not token_updated:
+            new_lines.append(f"KIS_ACCESS_TOKEN={access_token}")
+
+        env_path.write_text("\n".join(new_lines), encoding="utf-8")
+        print("   📝 .env 파일 업데이트 완료")
+    except Exception as e:
+        print(f"   ⚠️ .env 업데이트 실패(무시 가능): {e}")
+
+    return access_token
+
+def validate_and_refresh_token() -> Optional[str]:
+    global _KIS_ACCESS_TOKEN
+
+    if not KIS_URL_BASE:
+        print("❌ KIS_URL_BASE가 설정되지 않았습니다.")
+        return None
+
+    # 현재 토큰이 있으면 간단히 테스트
+    if _KIS_ACCESS_TOKEN:
+        test_url = f"{KIS_URL_BASE}/uapi/etfetn/v1/quotations/inquire-price"
+        test_params = {"FID_COND_MRKT_DIV_CODE": "J", "FID_INPUT_ISCD": "069500"}
+
+        test_headers = {
+            "content-type": "application/json; charset=utf-8",
+            "authorization": f"Bearer {_KIS_ACCESS_TOKEN}",
+            "appkey": KIS_APP_KEY or "",
+            "appsecret": KIS_APP_SECRET or "",
+            "tr_id": "FHPST02400000",
+            "custtype": "P",
+        }
+
+        try:
+            res = requests.get(test_url, headers=test_headers, params=test_params, timeout=3)
+            data = res.json()
+            # 응답 코드가 0이면 토큰은 유효한 것으로 간주
+            if data.get("rt_cd") == "0":
+                return _KIS_ACCESS_TOKEN
+        except Exception:
+            # 네트워크 오류 등은 그냥 새 토큰 발급으로 넘어간다
+            pass
+
+    # 여기까지 왔으면 토큰이 없거나/만료됨 → 새 토큰 발급
+    return refresh_access_token()
+
+
+def ensure_kis_token() -> Optional[str]:
+    token = validate_and_refresh_token()
+    if not token:
+        print("❌ 토큰 발급/갱신 실패 - KIS 환경변수(.env) 설정을 확인하세요.")
+    return token
+
+
+// kis/config.py
 
 import os
 from pathlib import Path
 from typing import Optional
 
-import requests
 from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -21,230 +139,19 @@ load_dotenv(PROJECT_ROOT / ".env")
 KIS_URL_BASE: Optional[str] = os.getenv("KIS_URL_BASE")
 KIS_APP_KEY: Optional[str] = os.getenv("KIS_APP_KEY")
 KIS_APP_SECRET: Optional[str] = os.getenv("KIS_APP_SECRET")
-KIS_ACCESS_TOKEN: Optional[str] = os.getenv("KIS_ACCESS_TOKEN")
-
-def to_float(value) -> Optional[float]:
-    try:
-        return float(str(value).replace(",", "").strip())
-    except Exception:
-        return None
+KIS_ACCESS_TOKEN_INIT: Optional[str] = os.getenv("KIS_ACCESS_TOKEN")
 
 
+// kis/etf_name.py
 
-def get_api_headers(tr_id: str) -> dict[str, str]:
-    from .env import KIS_ACCESS_TOKEN  # 전역 참조
-
-    auth = f"Bearer {KIS_ACCESS_TOKEN}" if KIS_ACCESS_TOKEN else ""
-    return {
-        "content-type": "application/json; charset=utf-8",
-        "authorization": auth,
-        "appkey": KIS_APP_KEY or "",
-        "appsecret": KIS_APP_SECRET or "",
-        "tr_id": tr_id,
-        "custtype": "P",
-    }
-
-
-def refresh_access_token() -> Optional[str]:
-    global KIS_ACCESS_TOKEN
-
-    if not KIS_URL_BASE:
-        raise RuntimeError("KIS_URL_BASE 설정이 없습니다.")
-
-    token_url = f"{KIS_URL_BASE}/oauth2/tokenP"
-
-    headers = {
-        "content-type": "application/json"
-    }
-
-    body = {
-        "grant_type": "client_credentials",
-        "appkey": KIS_APP_KEY,
-        "appsecret": KIS_APP_SECRET
-    }
-
-    try:
-        response = requests.post(token_url, headers=headers, json=body, timeout=5)
-        data = response.json()
-
-        if response.status_code == 200 and data.get("access_token"):
-            new_token = data["access_token"]
-            expires_in = data.get("expires_in", 86400)
-            expired_at = data.get("access_token_token_expired", "")
-
-            print(f"✅ 토큰 재발급 성공")
-            if expired_at:
-                print(f"   만료 시각: {expired_at}")
-            print(f"   유효 시간: {expires_in}초 ({expires_in/3600:.1f}시간)")
-
-            KIS_ACCESS_TOKEN = new_token
-
-            try:
-                env_path = PROJECT_ROOT / ".env"
-                if env_path.exists():
-                    lines = env_path.read_text(encoding="utf-8").split("\n")
-                    new_lines = []
-                    token_updated = False
-
-                    for line in lines:
-                        if line.startswith("KIS_ACCESS_TOKEN="):
-                            new_lines.append(f"KIS_ACCESS_TOKEN={new_token}")
-                            token_updated = True
-                        else:
-                            new_lines.append(line)
-
-                    if not token_updated:
-                        new_lines.append(f"KIS_ACCESS_TOKEN={new_token}")
-
-                    env_path.write_text("\n".join(new_lines), encoding="utf-8")
-                    print("   📝 .env 파일 업데이트 완료")
-            except Exception as e:
-                print(f"   ⚠️ .env 파일 업데이트 실패 (무시 가능): {e}")
-
-            return new_token
-        else:
-            print(f"❌ 토큰 발급 실패: {data}")
-            return None
-
-    except Exception as e:
-        print(f"❌ 토큰 발급 중 오류: {e}")
-        return None
-
-
-def validate_and_refresh_token() -> Optional[str]:
-    global KIS_ACCESS_TOKEN
-
-    if not KIS_URL_BASE:
-        raise RuntimeError("KIS_URL_BASE 설정이 없습니다.")
-
-
-    if not KIS_ACCESS_TOKEN:
-        print("⚠️ 메모리에 토큰이 없어 재발급을 시도합니다.")
-        return refresh_access_token()
-
-    test_url = f"{KIS_URL_BASE}/uapi/etfetn/v1/quotations/inquire-price"
-    test_params = {"FID_COND_MRKT_DIV_CODE": "J", "FID_INPUT_ISCD": "069500"}
-    test_headers = get_api_headers("FHPST02400000")
-
-    try:
-        response = requests.get(test_url, headers=test_headers, params=test_params, timeout=5)
-        data = response.json()
-
-        if data.get("rt_cd") in ["EGW00123", "EGW00121"]:
-            print("⚠️ 토큰 만료 감지, 재발급 시도...")
-            return refresh_access_token()
-        elif data.get("rt_cd") == "0":
-            print("✅ 기존 토큰 유효함")
-            return KIS_ACCESS_TOKEN
-        else:
-            print(f"⚠️ API 응답 오류 ({data.get('rt_cd')}), 토큰 재발급 시도...")
-            return refresh_access_token()
-
-    except requests.exceptions.Timeout:
-        print("⚠️ API 응답 시간 초과 (네트워크 이슈일 수 있음)")
-        return KIS_ACCESS_TOKEN
-    except Exception as e:
-        print(f"⚠️ 토큰 검증 중 오류: {e}")
-        return KIS_ACCESS_TOKEN
-
-
-def ensure_kis_token() -> Optional[str]:
-    token = validate_and_refresh_token()
-    if not token:
-        print("❌ 토큰 발급/갱신 실패 - KIS 환경변수(.env) 설정을 확인하세요.")
-    return token
-
-
-// kis/meta.py
 from __future__ import annotations
-from functools import lru_cache
 from typing import Optional
-import pandas as pd
+
 import requests
 
-from .env import OUT_DIR, validate_and_refresh_token, KIS_URL_BASE, get_api_headers
-
-def _extract_6digit_code(s: str) -> Optional[str]:
-    if not isinstance(s, str):
-        return None
-    digits = "".join(ch for ch in s if ch.isdigit())
-    if len(digits) < 6:
-        return None
-    return digits[-6:]
-
-def load_equity_master() -> pd.DataFrame:
-    eq_path_parquet = OUT_DIR / "equity_master.parquet"
-    eq_path_csv = OUT_DIR / "equity_master.csv"
-
-    if eq_path_parquet.exists():
-        df = pd.read_parquet(eq_path_parquet)
-    elif eq_path_csv.exists():
-        df = pd.read_csv(eq_path_csv)
-    else:
-        raise FileNotFoundError(
-            f"equity_master 파일을 찾을 수 없습니다: {eq_path_parquet} / {eq_path_csv}"
-        )
-
-    if "name" in df.columns:
-        df["name"] = df["name"].astype(str).str.strip()
-    if "short_code" in df.columns:
-        df["short_code"] = df["short_code"].astype(str).str.strip()
-    if "std_code" in df.columns:
-        df["std_code"] = df["std_code"].astype(str).str.strip()
-
-    return df
-
-def find_code_by_name(kor_name: str) -> pd.DataFrame:
-    df = load_equity_master()
-    m = df["name"].str.contains(kor_name, case=False, na=False)
-    candidates = df[m].copy()
-
-    if candidates.empty:
-        print(f"⚠️ 이름에 '{kor_name}' 이(가) 포함된 종목을 찾지 못했습니다.")
-        return candidates
-
-    if "kis_code" not in candidates.columns:
-        if "short_code" in candidates.columns:
-            candidates["kis_code"] = candidates["short_code"].apply(_extract_6digit_code)
-        elif "std_code" in candidates.columns:
-            candidates["kis_code"] = candidates["std_code"].apply(_extract_6digit_code)
-        else:
-            candidates["kis_code"] = None
-
-    return candidates
-
-def pick_single_code(kor_name: str) -> str:
-    candidates = find_code_by_name(kor_name)
-    if candidates.empty:
-        raise ValueError(f"'{kor_name}' 에 해당하는 종목을 찾을 수 없습니다.")
-
-    row = candidates.iloc[0]
-    kis_code = row.get("kis_code")
-    if not kis_code:
-        raise ValueError(f"'{kor_name}' 후보에서 KIS 코드(6자리)를 추출하지 못했습니다.\n{row}")
-
-    print(f"[INFO] '{kor_name}' → 선택된 종목: {row.get('name')} (kis_code={kis_code})")
-    return str(kis_code)
-
-def get_etf_name_from_mst(etf_code: str) -> Optional[str]:
-    df = load_equity_master()
-
-    if "kis_code" not in df.columns:
-        if "short_code" in df.columns:
-            df["kis_code"] = df["short_code"].apply(_extract_6digit_code)
-        elif "std_code" in df.columns:
-            df["kis_code"] = df["std_code"].apply(_extract_6digit_code)
-
-    if "kis_code" not in df.columns:
-        return None
-
-    m = df["kis_code"] == str(etf_code)
-    hit = df[m]
-    if hit.empty:
-        return None
-
-    name = str(hit.iloc[0]["name"]).strip()
-    return name or None
+from .config import KIS_URL_BASE
+from .auth import validate_and_refresh_token, get_api_headers
+from .mst import get_etf_name_from_mst
 
 def get_etf_name_from_kis(etf_code: str) -> Optional[str]:
     validate_and_refresh_token()
@@ -286,3 +193,100 @@ def get_etf_name(etf_code: str) -> str:
 
     print(f"⚠️ ETF 이름 조회 실패 → 코드 사용 ({code})")
     return code
+
+// kis/mst.py
+
+from typing import Optional
+import pandas as pd
+from .config import OUT_DIR
+
+def _extract_6digit_code(s: str) -> Optional[str]:
+    if not isinstance(s, str):
+        return None
+    digits = "".join(ch for ch in s if ch.isdigit())
+    if len(digits) < 6:
+        return None
+    return digits[-6:]
+
+def load_equity_master() -> pd.DataFrame:
+    eq_path_parquet = OUT_DIR / "equity_master.parquet"
+    eq_path_csv = OUT_DIR / "equity_master.csv"
+
+    if eq_path_parquet.exists():
+        df = pd.read_parquet(eq_path_parquet)
+    elif eq_path_csv.exists():
+        df = pd.read_csv(eq_path_csv)
+    else:
+        raise FileNotFoundError(
+            f"equity_master 파일을 찾을 수 없습니다: {eq_path_parquet} / {eq_path_csv}"
+        )
+
+    for col in ("name", "short_code", "std_code"):
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+
+    return df
+
+def find_code_by_name(kor_name: str) -> pd.DataFrame:
+    df = load_equity_master()
+    m = df["name"].str.contains(kor_name, case=False, na=False)
+    candidates = df[m].copy()
+
+    if candidates.empty:
+        print(f"⚠️ 이름에 '{kor_name}' 이(가) 포함된 종목을 찾지 못했습니다.")
+        return candidates
+
+    if "kis_code" not in candidates.columns:
+        if "short_code" in candidates.columns:
+            candidates["kis_code"] = candidates["short_code"].apply(_extract_6digit_code)
+        elif "std_code" in candidates.columns:
+            candidates["kis_code"] = candidates["std_code"].apply(_extract_6digit_code)
+        else:
+            candidates["kis_code"] = None
+
+    return candidates
+
+def pick_single_code(kor_name: str) -> str:
+    candidates = find_code_by_name(kor_name)
+    if candidates.empty:
+        raise ValueError(f"'{kor_name}' 에 해당하는 종목을 찾을 수 없습니다.")
+
+    row = candidates.iloc[0]
+    kis_code = row.get("kis_code")
+    if not kis_code:
+        raise ValueError(
+            f"'{kor_name}' 후보에서 KIS 코드(6자리)를 추출하지 못했습니다.\n{row}"
+        )
+
+    print(f"[INFO] '{kor_name}' → 선택된 종목: {row.get('name')} (kis_code={kis_code})")
+    return str(kis_code)
+
+def get_etf_name_from_mst(etf_code: str) -> Optional[str]:
+    df = load_equity_master()
+
+    if "kis_code" not in df.columns:
+        if "short_code" in df.columns:
+            df["kis_code"] = df["short_code"].apply(_extract_6digit_code)
+        elif "std_code" in df.columns:
+            df["kis_code"] = df["std_code"].apply(_extract_6digit_code)
+
+    if "kis_code" not in df.columns:
+        return None
+
+    m = df["kis_code"] == str(etf_code)
+    hit = df[m]
+    if hit.empty:
+        return None
+
+    name = str(hit.iloc[0]["name"]).strip()
+    return name or None
+
+// kis/utils.py
+
+from typing import Optional
+
+def to_float(value) -> Optional[float]:
+    try:
+        return float(str(value).replace(",", "").strip())
+    except Exception:
+        return None

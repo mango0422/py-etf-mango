@@ -3,4 +3,30 @@
 .venv/
 /**/__pycache__/**
 dev.md
-.txt
+# Python
+__pycache__/
+venv/
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+.venv
+
+# Config
+config/config.yaml
+script/config/config.yaml
+
+# Token
+token.json
+
+# Data
+# data/**
+# script/data/**
+
+# etc
+dummy.json
+cz.yaml
+
+# Test folder
+test/*
+script/*.csv
